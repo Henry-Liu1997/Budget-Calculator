@@ -129,7 +129,7 @@ var UIController = (function () {
     income: ".budget__income--value",
     expenses: ".budget__expenses--value",
     percentage: ".budget__expenses--percentage",
-    container: ".container",
+    container: ".list",
     itemPercentage: ".item__percentage",
     titleDate: ".budget__title--month",
   };
@@ -167,11 +167,11 @@ var UIController = (function () {
 
       if (type === "inc") {
         html =
-          '<div class="item clearfix" id="%type%"><div class="item__description">%descrption%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+          '<div class="item clearfix" id="%type%"><div class="item__description">%descrption%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-trash-alt"></i></button></div></div></div>';
         element = DOMstrings.incomeContainer;
       } else if (type === "exp") {
         html =
-          '<div class="item clearfix" id="%type%"><div class="item__description">%descrption%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div> </div> </div>';
+          '<div class="item clearfix" id="%type%"><div class="item__description">%descrption%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="far fa-trash-alt"></i></button></div> </div> </div>';
         element = DOMstrings.expensesContainer;
       }
 
@@ -329,7 +329,6 @@ var controller = (function (budgetCtrl, UIctrl) {
     if (elementID) {
       type = elementID.split("-")[0];
       ID = parseInt(elementID.split("-")[1]);
-      console.log(type, ID);
 
       // 1.  Delete the item from the budget controller
       budgetCtrl.deleteItem(type, ID);
